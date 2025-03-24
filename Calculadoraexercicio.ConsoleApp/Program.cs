@@ -37,7 +37,7 @@ while (true)
             Console.WriteLine($"{numeroTabuada} x {i} = {numeroTabuada * i}");
 
         Console.ReadLine();
-        return;
+        continue;
     }
 
     else if (opcao == "6")
@@ -53,7 +53,7 @@ while (true)
         }
 
         Console.ReadLine();
-        return;
+        continue;
     }
 
     Console.WriteLine("-----------------------------------------");
@@ -81,6 +81,12 @@ while (true)
             operacoesRealizadas[contador] = $"{numero1} x {numero2} = {resultado}";
             break;
         case "4":
+            if (numero2 == 0)
+            {
+                Console.WriteLine("Não é possível dividir por ZERO!!");
+                Console.ReadLine();
+                continue;
+            }
             resultado = numero1 / numero2;
             operacoesRealizadas[contador] = $"{numero1} / {numero2} = {resultado}";
             break;
@@ -95,6 +101,6 @@ while (true)
     Console.Write("Deseja continuar? (S/N): ");
     string opcaoContinuar = Console.ReadLine();
 
-    if (opcaoContinuar != "N")
+    if (opcaoContinuar.ToUpper() != "S")
         break;
 }
