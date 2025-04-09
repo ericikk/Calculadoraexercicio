@@ -2,24 +2,12 @@
 int contador = 0;
 
 while (true)
-{
-    Console.Clear();
-    Console.WriteLine("-----------------------------------------");
-    Console.WriteLine("Calculadora Tabajara 2025");
-    Console.WriteLine("-----------------------------------------");
+{   
+    string opcao = ExibirMenu();
 
-    Console.WriteLine("1 - Somar");
-    Console.WriteLine("2 - Subtrair");
-    Console.WriteLine("3 - Multiplicar");
-    Console.WriteLine("4 - Dividir");
-    Console.WriteLine("5 - Tabuada");
-    Console.WriteLine("6 - Histórico de Operações");
-    Console.WriteLine("S - Sair");
-    Console.WriteLine("-----------------------------------------");
+    bool opcaoSairFoiEscolhida = OpcaoSairFoiEscolhida(opcao);
 
-    Console.Write("Escolha uma opção: ");
-
-    string opcao = Console.ReadLine();
+    bool opcaoSairEhVerdadeira = opcao == "S";
 
     if (opcao == "S")
         break;
@@ -104,3 +92,32 @@ while (true)
     if (opcaoContinuar.ToUpper() != "S")
         break;
 }
+
+static string ExibirMenu()
+{
+    Console.Clear();
+    Console.WriteLine("-----------------------------------------");
+    Console.WriteLine("Calculadora Tabajara 2025");
+    Console.WriteLine("-----------------------------------------");
+
+    Console.WriteLine("1 - Somar");
+    Console.WriteLine("2 - Subtrair");
+    Console.WriteLine("3 - Multiplicar");
+    Console.WriteLine("4 - Dividir");
+    Console.WriteLine("5 - Tabuada");
+    Console.WriteLine("6 - Histórico de Operações");
+    Console.WriteLine("S - Sair");
+    Console.WriteLine("-----------------------------------------");
+
+    Console.Write("Escolha uma opção: ");
+    string opcao = Console.ReadLine();
+
+    return opcao;
+}
+
+static bool OpcaoSairFoiEscolhida(string opcao)
+{
+    bool opcaoSairFoiEscolhida = opcao == "S";
+
+    return opcaoSairFoiEscolhida;
+}   
